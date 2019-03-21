@@ -1,9 +1,12 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Formulario No. 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,7 +21,7 @@
                 <div class="card-body">
                 <form action ="LogicaEva1y2.php"  method="POST">
                     
-                    <input type="hidden" value="<?php echo $_GET["doc"]; ?>" name="doc">
+                    <?php  echo $_SESSION["doc"]; ?>
                     <input type="hidden" value="1" name="ev">
                     </div>
                     <div class="form-group">
