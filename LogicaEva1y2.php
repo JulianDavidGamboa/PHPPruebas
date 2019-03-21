@@ -1,17 +1,20 @@
+<?php
+    session_start();
+?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="css/estilo.css">
+<!--<link rel="stylesheet" href="css/estilo.css">-->
 
 <body>
 <?php
-
-require 'Conexion.php';
+    require 'LogicaRegistro.php';
+    require 'Conexion.php';
 $c = new Conexion();
 
 
-  
+
         //dia de hoy
         $e =$_POST["ev"];
-        $doc = $_POST['doc'];
+        $_SESSION["doc"] = $_POST["doc"];
         $dia = date("D");
         $puntuacion = 0;
 
@@ -45,17 +48,18 @@ $c = new Conexion();
                 }
 
                 if ( $puntuacion >= 3 ) {
-                    header('Location: FormEva2.php ? doc='.$doc);
+                    header('Location: FormEva2.php');
                 } else {
                     echo '<div class="alert alert-danger text-center" style="margin: 250px auto; height: 100px; width: 350px;" role="alert">
                             <br>No has sido admitido al SENA. :(
                         </div>
                     ';
-                     
+                     session_destroy();
                 }
-                 $sql = "UPDATE aspirantes SET Puntaje_eva_1 =".$puntuacion." where identificacion=".$doc; 
+                 $sql = "UPDATE aspirantes SET Puntaje_eva_1 =".$puntuacion." where identificacion=".$_SESSION["doc"]; 
        
         }else {
+            session_destroy();
             //form 2
             $pre1 =$_POST["p1"];
             $pre2 =$_POST["p2"];
