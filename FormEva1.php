@@ -21,7 +21,7 @@
                 <div class="card-body">
                 <form action ="LogicaEva1y2.php"  method="POST">
                     
-                    <?php  echo $_SESSION["doc"]; ?>
+                    <input type="hidden" value=" echo $_SESSION['doc'] " name="doc">
                     <input type="hidden" value="1" name="ev">
                     </div>
                     <div class="form-group">

@@ -21,7 +21,6 @@
             </div>
                 <div class="card-body">
                 <form action ="LogicaEva1y2.php"  method="POST">
-                    <?php echo $_SESSION["doc"]; ?>
                 <input type="hidden" value="2" name="ev">
                     <div class="form-group">
                          <h5> <label>Responda el sigueinte cuestionario y envielo con el boton que se encuentra en la parte inferior. </label></h5>
